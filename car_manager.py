@@ -3,12 +3,12 @@ from turtle import Turtle
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
-random_speed = STARTING_MOVE_DISTANCE + random.choice(range(0,50))
 
 
 class CarManager:
     def __init__(self):
         super().__init__()
+        self.last_speed = STARTING_MOVE_DISTANCE
         self.all_cars = []
         for i in self.all_cars:
             if self.all_cars[i].distance:
@@ -25,11 +25,11 @@ class CarManager:
         if new_car.ycor() % 4 == 0:
             self.all_cars.append(new_car)
 
-
-
-
     def movement(self):
         for car in self.all_cars:
-            car.backward(STARTING_MOVE_DISTANCE)
+            car.backward(self.last_speed)
+
+    def increase_speed(self):
+        self.last_speed += MOVE_INCREMENT
 
 
