@@ -10,9 +10,7 @@ class CarManager:
         super().__init__()
         self.last_speed = STARTING_MOVE_DISTANCE
         self.all_cars = []
-        for i in self.all_cars:
-            if self.all_cars[i].distance:
-                self.all_cars.pop(i)
+
 
     def create_car(self):
         new_car = Turtle('square')
